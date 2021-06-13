@@ -28,10 +28,6 @@ void leVetor(int *v, int n) {
 
   mergeSort(v, 0, n);
 
-  /* for(i = 0; i < n; i++){
-    printf("%d ", v[i]);
-  } */
-
   printf("%d %d", compares, switches);
 }
 

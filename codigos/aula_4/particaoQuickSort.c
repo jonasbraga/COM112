@@ -49,7 +49,7 @@ void leVetor(int *v, int n) {
 
 void quickSortHoare(int *v, int p, int r, int (*partitionFunction)()){
   if (p < r){
-    int pi = (*partitionFunction) (v, p, r);    
+    int pi = (*partitionFunction) (v, p, r);
     quickSortHoare(v, p, pi, partitionFunction);
     quickSortHoare(v, pi + 1, r, partitionFunction);
   }
