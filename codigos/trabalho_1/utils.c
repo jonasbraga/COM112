@@ -1,4 +1,4 @@
-#define MIN_ARRAYS_LENGTH 20200 + 1 // + 1 para armazenar o length no 1º elemento do array
+#define MIN_ARRAYS_LENGTH 75000 + 1 // + 1 para armazenar o length no 1º elemento do array
 #define TOTAL_ARRAYS_PER_THEME 5
 #define TOTAL_ARRAYS_THEME 4
 #define RANDOM_ARRAY 0
@@ -13,37 +13,7 @@
 
 // ===== Massas de testes =====
 
-int randomArray[TOTAL_ARRAYS_PER_THEME][MIN_ARRAYS_LENGTH] = {
-  {50200, 10, 11, 12, 13},
-  {20301, 10, 11, 12, 13},
-  {20402, 10, 11, 12, 13},
-  {20503, 10, 11, 12, 13},
-  {20604, 10, 11, 12, 13}
-};
-
-int sortedArray[TOTAL_ARRAYS_PER_THEME][MIN_ARRAYS_LENGTH] = {
-  {4, 1, 2, 3, 4},
-  {4, 1, 2, 3, 4},
-  {4, 1, 2, 3, 4},
-  {4, 1, 2, 3, 4},
-  {4, 1, 2, 3, 4}
-};
-
-int reverseSortedArray[TOTAL_ARRAYS_PER_THEME][MIN_ARRAYS_LENGTH] = {
-  {4, 4, 3, 2, 1},
-  {4, 4, 3, 2, 1},
-  {4, 4, 3, 2, 1},
-  {4, 4, 3, 2, 1},
-  {4, 4, 3, 2, 1}
-};
-
-int randomRepeatedElementsArray[TOTAL_ARRAYS_PER_THEME][MIN_ARRAYS_LENGTH] = {
-  {4, 10, 11, 12, 13},
-  {4, 10, 11, 12, 13},
-  {4, 10, 11, 12, 13},
-  {4, 10, 11, 12, 13},
-  {4, 10, 11, 12, 13}
-};
+#include "arrays.c"
 
 int *massas[4][5] = {
   {
@@ -76,11 +46,6 @@ int *massas[4][5] = {
   }
 };
 
-// ===== Definição de novo tipo de funções =====
-
-// typedef int (*fParticao)(int *, int, int); 
-// typedef void (*fQuickSort)(int *, int, int, int()); 
-
 // ===== Variáveis globais de controle =====
 
 long int switches = 0, compares = 0;
@@ -90,9 +55,13 @@ double elapsedSeconds = 0;
 // ===== Funções úteis =====
 
 void imprimeVetor(int *v, int n) {
+  printf("Array ordenado: \n[");
   for(int i = 0; i < n; i++) {
-    printf("%d\n", v[i]);
+    if(i + 1 < n) printf("%d, ", v[i]);
+    else printf("%d", v[i]);
   }
+  printf("]\n");
+  printf("%d elementos\n", n);
 }
 
 void swap(int* a, int* b){
