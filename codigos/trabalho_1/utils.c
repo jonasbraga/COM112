@@ -10,6 +10,7 @@
 #include "stdio.h"
 #include "stdlib.h"
 #include "time.h"
+#include "sys/time.h"
 
 // ===== Massas de testes =====
 
@@ -70,14 +71,17 @@ void swap(int* a, int* b){
   *a = *b;
   *b = t;
 }
-
+struct timeval begin, end;
 void startTimer() {
+  gettimeofday(&begin, 0);
   startedMoment = time(NULL);
 }
 
-double calculateExecutionTime() {
-  time_t endMoment = time(NULL);
-  return elapsedSeconds = difftime(endMoment, startedMoment);  
+void calculateExecutionTime() {
+  gettimeofday(&end, 0);
+  long seconds = end.tv_sec - begin.tv_sec;
+  long microseconds = end.tv_usec - begin.tv_usec;
+  elapsedSeconds = seconds + microseconds*1e-6;
 }
 
 void showAlgorithmReport(){
