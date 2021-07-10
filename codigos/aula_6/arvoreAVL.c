@@ -1,5 +1,6 @@
-// Jonas Henrique Santos Braga
-// Giulia Garcia Castro Rodrigues
+// Jonas Henrique Santos Braga - 2020000057
+// Giulia Garcia Castro Rodrigues - 2020000191
+// João Pedro Furquim Marques - 2020018178
 
 #define DEBUG 0
 
