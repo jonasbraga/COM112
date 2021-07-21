@@ -9,7 +9,7 @@ int* criaTabelaHash(int n);
 int chaveDivisao(int chave, int n);
 int insereTabelaHash(int* tabela, int chave, int n);
 int consultaTabelaHash(int* tabela, int chave, int n);
-int removeTabelaHash(int* tabela, int chave, int n);
+int removeTabelaHash(int* tabela, int posicao, int n);
 int imprimirTabelaHash(int* tabela, int n);
 void liberaTabelaHash(int* tabela);
 
@@ -116,10 +116,9 @@ int consultaTabelaHash(int* tabela, int chave, int n){
   return tabela[posicao % n] == chave ? posicao % n : -1;
 }
 
-int removeTabelaHash(int* tabela, int chave, int n){
-  int posicao = consultaTabelaHash(tabela, chave, n);
-  if (posicao == -1) return 0;
-  tabela[posicao % n] = DUMMY;
+int removeTabelaHash(int* tabela, int posicao, int n){
+  
+  tabela[posicao] = DUMMY;
   return 1;
 }
 
